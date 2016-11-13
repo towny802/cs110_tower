@@ -18,8 +18,7 @@ public class RunGame extends Application {
     public void start(Stage primaryStage) {
 
         TowerModel tower = new TowerModel();
-        int[] temp = {0,0};
-        Player hero = new Player(temp);
+        Player hero = new Player(new int[]{1, 1});
         Pane pane = new Pane();
 
         tower.AllocateFloor(tower.floor0, tower.occupants, pane);
@@ -28,8 +27,8 @@ public class RunGame extends Application {
         iv1.setImage(hero.getImgRepresentation());
         iv1.setFitWidth(32);
         iv1.setFitHeight(32);
-        iv1.setX(0);
-        iv1.setY(0);
+        iv1.setX(hero.pos[0] * (640 / 20));
+        iv1.setY(hero.pos[1] * (640 / 20));
 
         pane.getChildren().add(iv1);
 
@@ -42,49 +41,49 @@ public class RunGame extends Application {
         iv1.setOnKeyPressed((KeyEvent e) -> {
             switch (e.getCode()) {
                 case UP:
-                    if (hero.pos[1] > 0) {
+                    if (!(tower.obstructions[hero.pos[0]][hero.pos[1] - 1] instanceof Wall)) {
                         int[] move = {0, -1};
                         hero.rePos(move, iv1);
                     }
                     break;
                 case DOWN:
-                    if (hero.pos[1] < 19) {
+                    if (!(tower.obstructions[hero.pos[0]][hero.pos[1] + 1] instanceof Wall)) {
                         int[] move = {0, 1};
                         hero.rePos(move, iv1);
                     }
                     break;
                 case LEFT:
-                    if (hero.pos[0] > 0) {
+                    if (!(tower.obstructions[hero.pos[0] - 1][hero.pos[1]] instanceof Wall)) {
                         int[] move = {-1, 0};
                         hero.rePos(move, iv1);
                     }
                     break;
                 case RIGHT:
-                    if (hero.pos[0] < 19) {
+                    if (!(tower.obstructions[hero.pos[0] + 1][hero.pos[1]] instanceof Wall)) {
                         int[] move = {1, 0};
                         hero.rePos(move, iv1);
                     }
                     break;
                 case Y:
-                    if ((hero.pos[0] > 0) && (hero.pos[1] > 0)) {
+                    if (!(tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1] instanceof Wall)) {
                         int[] move = {-1, -1};
                         hero.rePos(move, iv1);
                     }
                     break;
                 case U:
-                    if ((hero.pos[0] < 19) && (hero.pos[1] > 0)) {
+                    if (!(tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1] instanceof Wall)) {
                         int[] move = {1, -1};
                         hero.rePos(move, iv1);
                     }
                     break;
                 case B:
-                    if ((hero.pos[0] > 0) && (hero.pos[1] < 19)) {
+                    if (!(tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1] instanceof Wall)) {
                         int[] move = {-1, 1};
                         hero.rePos(move, iv1);
                     }
                     break;
                 case N:
-                    if ((hero.pos[0] < 19) && (hero.pos[1] < 19)) {
+                    if (!(tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1] instanceof Wall)) {
                         int[] move = {1, 1};
                         hero.rePos(move, iv1);
                     }
