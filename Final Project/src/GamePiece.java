@@ -14,6 +14,9 @@ public abstract class GamePiece extends Parent {
     public int[] pos = {0, 0};
     public String name;
     public ImageView view;
+    private int health;
+    private int damage;
+    private int armor;
 
     public GamePiece(int[] pos) {
         this.pos[0] = pos[0];
@@ -23,6 +26,19 @@ public abstract class GamePiece extends Parent {
         view.setY(pos[1] * (640 / 20));
         view.setFitHeight(32);
         view.setFitWidth(32);
+    }
+
+    public GamePiece(int[] pos, int health, int damage, int armor) {
+        this.pos[0] = pos[0];
+        this.pos[1] = pos[1];
+        view = new ImageView(getImgRepresentation());
+        view.setX(pos[0] * (640 / 20));
+        view.setY(pos[1] * (640 / 20));
+        view.setFitHeight(32);
+        view.setFitWidth(32);
+        this.health = health;
+        this.damage = damage;
+        this.armor = armor;
     }
 
     public String getName() {
@@ -42,6 +58,16 @@ public abstract class GamePiece extends Parent {
         view.setY(pyy);
     }
 
+    /**
+     * @param offense
+     * @param defense
+     * @return returns true if defender died, returns false if defender survived
+     */
+    public boolean attack(GamePiece offense, GamePiece defense) {
+        defense.setHealth(defense.getHealth() - (offense.getDamage() - defense.getArmor()));
+        return defense.getHealth() <= 0;
+    }
+
     public int getX() {
         return pos[0];
     }
@@ -53,5 +79,47 @@ public abstract class GamePiece extends Parent {
     public abstract char getCharRepresentation();
 
     public abstract Image getImgRepresentation();
+
+    /**
+     * @return the health
+     */
+    public int getHealth() {
+        return health;
+    }
+
+    /**
+     * @param health the health to set
+     */
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    /**
+     * @return the damage
+     */
+    public int getDamage() {
+        return damage;
+    }
+
+    /**
+     * @param damage the damage to set
+     */
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    /**
+     * @return the armor
+     */
+    public int getArmor() {
+        return armor;
+    }
+
+    /**
+     * @param armor the armor to set
+     */
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
 
 }

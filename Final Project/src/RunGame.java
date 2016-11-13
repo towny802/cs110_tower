@@ -41,7 +41,9 @@ public class RunGame extends Application {
         iv1.setOnKeyPressed((KeyEvent e) -> {
             switch (e.getCode()) {
                 case UP:
-                    if (!(tower.obstructions[hero.pos[0]][hero.pos[1] - 1] instanceof Wall)) {
+                    if (tower.obstructions[hero.pos[0]][hero.pos[1] - 1] instanceof Wall) {
+                    } else if (tower.obstructions[hero.pos[0]][hero.pos[1] - 1] instanceof Creature){
+//                        attack(hero, tower.occupants);
                         int[] move = {0, -1};
                         hero.rePos(move, iv1);
                     }
