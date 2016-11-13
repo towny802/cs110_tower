@@ -5,21 +5,13 @@ import javafx.scene.image.Image;
  *
  * @author Ben Spenciner
  */
-public class Player extends GamePiece {
+public class Bandit extends Creature {
 
-    private char charRepresentation = '@';
+    private char charRepresentation = 'b';
     private Image imgRepresentation = new Image("tile2.png");
 
-    public Player(int[] pos) {
+    public Bandit(int[] pos) {
         super(pos);
-    }
-
-    public void setCharRepresentation(char charRepresentation) {
-        this.charRepresentation = charRepresentation;
-    }
-
-    public void setImgRepresentation(Image imgRepresentation) {
-        this.imgRepresentation = imgRepresentation;
     }
 
     @Override
@@ -30,5 +22,13 @@ public class Player extends GamePiece {
     @Override
     public Image getImgRepresentation() {
         return imgRepresentation;
+    }
+
+    public void setCharRepresentation(char charRepresentation) {
+        this.charRepresentation = charRepresentation;
+    }
+
+    public void setImgRepresentation(Image imgRepresentation) {
+        this.imgRepresentation = imgRepresentation;
     }
 }
