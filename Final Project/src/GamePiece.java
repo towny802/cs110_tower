@@ -9,7 +9,7 @@ import javafx.scene.layout.Pane;
  *
  * @author Ben Specniner
  */
-public abstract class GamePiece extends Parent {
+public abstract class GamePiece {
 
     public int[] pos = {0, 0};
     public String name;

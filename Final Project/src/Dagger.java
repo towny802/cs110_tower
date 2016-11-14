@@ -12,6 +12,8 @@ public class Dagger extends Weapon {
     private char charRepresentation = ',';
     private Image imgRepresentation = new Image("dagger.png");
 
+
+
     @Override
     public char getCharRepresentation() {
         return charRepresentation;

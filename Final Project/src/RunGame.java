@@ -54,21 +54,20 @@ public class RunGame extends Application {
                 case UP:
                     if (tower.obstructions[hero.pos[0]][hero.pos[1] - 1] instanceof Wall) {
                     } else if (tower.obstructions[hero.pos[0]][hero.pos[1] - 1] instanceof Creature) {
-                        Creature temp = (Creature) tower.obstructions[hero.pos[0]][hero.pos[1] - 1];
                         if (hero.attack(hero, tower.obstructions[hero.pos[0]][hero.pos[1] - 1])) {
+                            Creature creatureTemp = (Creature) tower.obstructions[hero.pos[0]][hero.pos[1] - 1];
+                            tower.occupants.remove(creatureTemp);
+                            pane.getChildren().remove(creatureTemp.view);
+                            Item itemTemp = creatureTemp.dropItem(creatureTemp);
+                            tower.obstructions[hero.pos[0]][hero.pos[1] - 1] = itemTemp;
                             System.out.println(tower.obstructions[hero.pos[0]][hero.pos[1] - 1]);
-                            tower.obstructions[hero.pos[0]][hero.pos[1] - 1] = tower.obstructions[hero.pos[0]][hero.pos[1] - 1].dropItem((Creature) tower.obstructions[hero.pos[0]][hero.pos[1] - 1]);
-//                            System.out.println(tower.obstructions[hero.pos[0]][hero.pos[1] - 1]);
-                            tower.occupants.add(tower.obstructions[hero.pos[0]][hero.pos[1] - 1].dropItem(temp));
-//                            System.out.println(tower.obstructions[hero.pos[0]][hero.pos[1] - 1]);
-                            pane.getChildren().add(tower.obstructions[hero.pos[0]][hero.pos[1] - 1].dropItem(temp).view);
-//                            System.out.println(tower.obstructions[hero.pos[0]][hero.pos[1] - 1]);
-                            tower.occupants.remove(tower.obstructions[hero.pos[0]][hero.pos[1] - 1]);
-//                            System.out.println(tower.obstructions[hero.pos[0]][hero.pos[1] - 1]);
-                            pane.getChildren().remove(tower.obstructions[hero.pos[0]][hero.pos[1] - 1].view);
-//                            System.out.println(tower.obstructions[hero.pos[0]][hero.pos[1] - 1]);
-                            tower.obstructions[hero.pos[0]][hero.pos[1] - 1] = null;
-                            System.out.println(tower.obstructions[hero.pos[0]][hero.pos[1] - 1]);
+                            tower.occupants.add(itemTemp);
+                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
+                            tempIV.setFitHeight(32);
+                            tempIV.setFitWidth(32);
+                            tempIV.setX(hero.pos[0] * (640 / 20));
+                            tempIV.setY((hero.pos[1] - 1) * (640 / 20));
+                            pane.getChildren().add(tempIV);
                         }
                     } else {
                         int[] move = {0, -1};
@@ -79,9 +78,19 @@ public class RunGame extends Application {
                     if (tower.obstructions[hero.pos[0]][hero.pos[1] + 1] instanceof Wall) {
                     } else if (tower.obstructions[hero.pos[0]][hero.pos[1] + 1] instanceof Creature) {
                         if (hero.attack(hero, tower.obstructions[hero.pos[0]][hero.pos[1] + 1])) {
-                            tower.occupants.remove(tower.obstructions[hero.pos[0]][hero.pos[1] + 1]);
-                            pane.getChildren().remove(tower.obstructions[hero.pos[0]][hero.pos[1] + 1].view);
-                            tower.obstructions[hero.pos[0]][hero.pos[1] + 1] = null;
+                            Creature creatureTemp = (Creature) tower.obstructions[hero.pos[0]][hero.pos[1] + 1];
+                            tower.occupants.remove(creatureTemp);
+                            pane.getChildren().remove(creatureTemp.view);
+                            Item itemTemp = creatureTemp.dropItem(creatureTemp);
+                            tower.obstructions[hero.pos[0]][hero.pos[1] + 1] = itemTemp;
+                            System.out.println(tower.obstructions[hero.pos[0]][hero.pos[1] + 1]);
+                            tower.occupants.add(itemTemp);
+                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
+                            tempIV.setFitHeight(32);
+                            tempIV.setFitWidth(32);
+                            tempIV.setX(hero.pos[0] * (640 / 20));
+                            tempIV.setY((hero.pos[1] + 1) * (640 / 20));
+                            pane.getChildren().add(tempIV);
                         }
                     } else {
                         int[] move = {0, 1};
@@ -92,9 +101,19 @@ public class RunGame extends Application {
                     if (tower.obstructions[hero.pos[0] - 1][hero.pos[1]] instanceof Wall) {
                     } else if (tower.obstructions[hero.pos[0] - 1][hero.pos[1]] instanceof Creature) {
                         if (hero.attack(hero, tower.obstructions[hero.pos[0] - 1][hero.pos[1]])) {
-                            tower.occupants.remove(tower.obstructions[hero.pos[0] - 1][hero.pos[1]]);
-                            pane.getChildren().remove(tower.obstructions[hero.pos[0] - 1][hero.pos[1]].view);
-                            tower.obstructions[hero.pos[0] - 1][hero.pos[1]] = null;
+                            Creature creatureTemp = (Creature) tower.obstructions[hero.pos[0] - 1][hero.pos[1]];
+                            tower.occupants.remove(creatureTemp);
+                            pane.getChildren().remove(creatureTemp.view);
+                            Item itemTemp = creatureTemp.dropItem(creatureTemp);
+                            tower.obstructions[hero.pos[0] - 1][hero.pos[1]] = itemTemp;
+                            System.out.println(tower.obstructions[hero.pos[0] - 1][hero.pos[1]]);
+                            tower.occupants.add(itemTemp);
+                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
+                            tempIV.setFitHeight(32);
+                            tempIV.setFitWidth(32);
+                            tempIV.setX((hero.pos[0] - 1) * (640 / 20));
+                            tempIV.setY(hero.pos[1] * (640 / 20));
+                            pane.getChildren().add(tempIV);
                         }
                     } else {
                         int[] move = {-1, 0};
@@ -105,9 +124,19 @@ public class RunGame extends Application {
                     if (tower.obstructions[hero.pos[0] + 1][hero.pos[1]] instanceof Wall) {
                     } else if (tower.obstructions[hero.pos[0] + 1][hero.pos[1]] instanceof Creature) {
                         if (hero.attack(hero, tower.obstructions[hero.pos[0] + 1][hero.pos[1]])) {
-                            tower.occupants.remove(tower.obstructions[hero.pos[0] + 1][hero.pos[1]]);
-                            pane.getChildren().remove(tower.obstructions[hero.pos[0] + 1][hero.pos[1]].view);
-                            tower.obstructions[hero.pos[0] + 1][hero.pos[1]] = null;
+                            Creature creatureTemp = (Creature) tower.obstructions[hero.pos[0] + 1][hero.pos[1]];
+                            tower.occupants.remove(creatureTemp);
+                            pane.getChildren().remove(creatureTemp.view);
+                            Item itemTemp = creatureTemp.dropItem(creatureTemp);
+                            tower.obstructions[hero.pos[0] + 1][hero.pos[1]] = itemTemp;
+                            System.out.println(tower.obstructions[hero.pos[0] + 1][hero.pos[1]]);
+                            tower.occupants.add(itemTemp);
+                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
+                            tempIV.setFitHeight(32);
+                            tempIV.setFitWidth(32);
+                            tempIV.setX((hero.pos[0] + 1) * (640 / 20));
+                            tempIV.setY(hero.pos[1] * (640 / 20));
+                            pane.getChildren().add(tempIV);
                         }
                     } else {
                         int[] move = {1, 0};
@@ -118,9 +147,19 @@ public class RunGame extends Application {
                     if (tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1] instanceof Wall) {
                     } else if (tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1] instanceof Creature) {
                         if (hero.attack(hero, tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1])) {
-                            tower.occupants.remove(tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1]);
-                            pane.getChildren().remove(tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1].view);
-                            tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1] = null;
+                            Creature creatureTemp = (Creature) tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1];
+                            tower.occupants.remove(creatureTemp);
+                            pane.getChildren().remove(creatureTemp.view);
+                            Item itemTemp = creatureTemp.dropItem(creatureTemp);
+                            tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1] = itemTemp;
+                            System.out.println(tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1]);
+                            tower.occupants.add(itemTemp);
+                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
+                            tempIV.setFitHeight(32);
+                            tempIV.setFitWidth(32);
+                            tempIV.setX((hero.pos[0] - 1) * (640 / 20));
+                            tempIV.setY((hero.pos[1] - 1) * (640 / 20));
+                            pane.getChildren().add(tempIV);
                         }
                     } else {
                         int[] move = {-1, -1};
@@ -131,9 +170,19 @@ public class RunGame extends Application {
                     if (tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1] instanceof Wall) {
                     } else if (tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1] instanceof Creature) {
                         if (hero.attack(hero, tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1])) {
-                            tower.occupants.remove(tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1]);
-                            pane.getChildren().remove(tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1].view);
-                            tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1] = null;
+                            Creature creatureTemp = (Creature) tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1];
+                            tower.occupants.remove(creatureTemp);
+                            pane.getChildren().remove(creatureTemp.view);
+                            Item itemTemp = creatureTemp.dropItem(creatureTemp);
+                            tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1] = itemTemp;
+                            System.out.println(tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1]);
+                            tower.occupants.add(itemTemp);
+                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
+                            tempIV.setFitHeight(32);
+                            tempIV.setFitWidth(32);
+                            tempIV.setX((hero.pos[0] + 1) * (640 / 20));
+                            tempIV.setY((hero.pos[1] - 1) * (640 / 20));
+                            pane.getChildren().add(tempIV);
                         }
                     } else {
                         int[] move = {1, -1};
@@ -144,9 +193,19 @@ public class RunGame extends Application {
                     if (tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1] instanceof Wall) {
                     } else if (tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1] instanceof Creature) {
                         if (hero.attack(hero, tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1])) {
-                            tower.occupants.remove(tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1]);
-                            pane.getChildren().remove(tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1].view);
-                            tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1] = null;
+                            Creature creatureTemp = (Creature) tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1];
+                            tower.occupants.remove(creatureTemp);
+                            pane.getChildren().remove(creatureTemp.view);
+                            Item itemTemp = creatureTemp.dropItem(creatureTemp);
+                            tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1] = itemTemp;
+                            System.out.println(tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1]);
+                            tower.occupants.add(itemTemp);
+                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
+                            tempIV.setFitHeight(32);
+                            tempIV.setFitWidth(32);
+                            tempIV.setX((hero.pos[0] - 1) * (640 / 20));
+                            tempIV.setY((hero.pos[1] + 1) * (640 / 20));
+                            pane.getChildren().add(tempIV);
                         }
                     } else {
                         int[] move = {-1, 1};
@@ -157,9 +216,19 @@ public class RunGame extends Application {
                     if (tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1] instanceof Wall) {
                     } else if (tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1] instanceof Creature) {
                         if (hero.attack(hero, tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1])) {
-                            tower.occupants.remove(tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1]);
-                            pane.getChildren().remove(tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1].view);
-                            tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1] = null;
+                            Creature creatureTemp = (Creature) tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1];
+                            tower.occupants.remove(creatureTemp);
+                            pane.getChildren().remove(creatureTemp.view);
+                            Item itemTemp = creatureTemp.dropItem(creatureTemp);
+                            tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1] = itemTemp;
+                            System.out.println(tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1]);
+                            tower.occupants.add(itemTemp);
+                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
+                            tempIV.setFitHeight(32);
+                            tempIV.setFitWidth(32);
+                            tempIV.setX((hero.pos[0] + 1) * (640 / 20));
+                            tempIV.setY((hero.pos[1] + 1) * (640 / 20));
+                            pane.getChildren().add(tempIV);
                         }
                     } else {
                         int[] move = {1, 1};

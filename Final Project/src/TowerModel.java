@@ -19,7 +19,6 @@ public class TowerModel {
     public void AllocateFloor(GamePiece[] floor, ArrayList<GamePiece> occupants, Pane pane) {
         for (int i = 0; i < floor.length; i++) {
             occupants.add(floor[i]);
-//            System.out.println(occupants.get(i).view);
             occupants.get(i).view.setImage(occupants.get(i).getImgRepresentation());
             pane.getChildren().add(occupants.get(i).view);
             obstructions[occupants.get(i).pos[0]][occupants.get(i).pos[1]] = floor[i];
