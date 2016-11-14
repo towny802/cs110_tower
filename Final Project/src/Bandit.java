@@ -8,10 +8,11 @@ import javafx.scene.image.Image;
 public class Bandit extends Creature {
 
     private char charRepresentation = 'b';
-    private Image imgRepresentation = new Image("tile2.png");
-    private int health;
-    private int damage;
-    private int armor;
+    private Image imgRepresentation = new Image("bandit.png");
+    private int health = 10;
+    private int damage = 0;
+    private int armor = 0;
+    private String name = "Bandit";
 
     public Bandit(int[] pos) {
         super(pos);
@@ -19,6 +20,14 @@ public class Bandit extends Creature {
 
     public Bandit(int[] pos, int health, int damage, int armor) {
         super(pos, health, damage, armor);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -85,5 +94,10 @@ public class Bandit extends Creature {
     @Override
     public void setArmor(int armor) {
         this.armor = armor;
+    }
+    
+    @Override
+    public int getType(){
+        return 0;
     }
 }

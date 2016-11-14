@@ -7,11 +7,27 @@ import javafx.scene.image.Image;
  */
 public class Player extends GamePiece {
 
-    private char charRepresentation = '@';
-    private Image imgRepresentation = new Image("tile2.png");
+    private char charRepresentation = 'X';
+    private Image imgRepresentation = new Image("player.png");
+    private int health;
+    private int damage;
+    private int armor;
+    private String name = "Default";
 
     public Player(int[] pos) {
         super(pos);
+    }
+
+    public Player(int[] pos, int health, int damage, int armor) {
+        super(pos, health, damage, armor);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setCharRepresentation(char charRepresentation) {

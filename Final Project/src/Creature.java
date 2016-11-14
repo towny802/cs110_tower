@@ -12,4 +12,6 @@ public abstract class Creature extends GamePiece {
     public Creature(int[] pos) {
         super(pos);
     }
+
+    public abstract int getType();
 }

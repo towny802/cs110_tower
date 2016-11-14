@@ -18,6 +18,14 @@ public abstract class GamePiece extends Parent {
     private int damage;
     private int armor;
 
+    public GamePiece() {
+        view = new ImageView(getImgRepresentation());
+        view.setX(pos[0] * (640 / 20));
+        view.setY(pos[1] * (640 / 20));
+        view.setFitHeight(32);
+        view.setFitWidth(32);
+    }
+
     public GamePiece(int[] pos) {
         this.pos[0] = pos[0];
         this.pos[1] = pos[1];
@@ -65,7 +73,25 @@ public abstract class GamePiece extends Parent {
      */
     public boolean attack(GamePiece offense, GamePiece defense) {
         defense.setHealth(defense.getHealth() - (offense.getDamage() - defense.getArmor()));
+        System.out.println(offense.getName() + " dealt " + (offense.getDamage() - defense.getArmor()) + " damage to " + defense.getName() + ". It has " + defense.getHealth() + " health left.");
+        if (defense.getHealth() <= 0) {
+            System.out.println(defense.getName() + " died!");
+        }
         return defense.getHealth() <= 0;
+    }
+
+    public Item dropItem(Creature creature) {
+        int rand = (int) (Math.random() * 100);
+        switch (creature.getType()) {
+            case 0: //bandits
+                if (rand <= 50) {
+                    return new Dagger();
+                } else {
+                    return new Cloak();
+                }
+            default:
+                return null;
+        }
     }
 
     public int getX() {
