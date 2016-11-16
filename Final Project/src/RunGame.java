@@ -62,12 +62,11 @@ public class RunGame extends Application {
                             tower.obstructions[hero.pos[0]][hero.pos[1] - 1] = itemTemp;
                             System.out.println(tower.obstructions[hero.pos[0]][hero.pos[1] - 1]);
                             tower.occupants.add(itemTemp);
-                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
-                            tempIV.setFitHeight(32);
-                            tempIV.setFitWidth(32);
-                            tempIV.setX(hero.pos[0] * (640 / 20));
-                            tempIV.setY((hero.pos[1] - 1) * (640 / 20));
-                            pane.getChildren().add(tempIV);
+                            itemTemp.view.setFitHeight(32);
+                            itemTemp.view.setFitWidth(32);
+                            itemTemp.view.setX(hero.pos[0] * (640 / 20));
+                            itemTemp.view.setY((hero.pos[1] - 1) * (640 / 20));
+                            pane.getChildren().add(itemTemp.view);
                         }
                     } else {
                         int[] move = {0, -1};
@@ -85,12 +84,11 @@ public class RunGame extends Application {
                             tower.obstructions[hero.pos[0]][hero.pos[1] + 1] = itemTemp;
                             System.out.println(tower.obstructions[hero.pos[0]][hero.pos[1] + 1]);
                             tower.occupants.add(itemTemp);
-                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
-                            tempIV.setFitHeight(32);
-                            tempIV.setFitWidth(32);
-                            tempIV.setX(hero.pos[0] * (640 / 20));
-                            tempIV.setY((hero.pos[1] + 1) * (640 / 20));
-                            pane.getChildren().add(tempIV);
+                            itemTemp.view.setFitHeight(32);
+                            itemTemp.view.setFitWidth(32);
+                            itemTemp.view.setX(hero.pos[0] * (640 / 20));
+                            itemTemp.view.setY((hero.pos[1] + 1) * (640 / 20));
+                            pane.getChildren().add(itemTemp.view);
                         }
                     } else {
                         int[] move = {0, 1};
@@ -108,12 +106,11 @@ public class RunGame extends Application {
                             tower.obstructions[hero.pos[0] - 1][hero.pos[1]] = itemTemp;
                             System.out.println(tower.obstructions[hero.pos[0] - 1][hero.pos[1]]);
                             tower.occupants.add(itemTemp);
-                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
-                            tempIV.setFitHeight(32);
-                            tempIV.setFitWidth(32);
-                            tempIV.setX((hero.pos[0] - 1) * (640 / 20));
-                            tempIV.setY(hero.pos[1] * (640 / 20));
-                            pane.getChildren().add(tempIV);
+                            itemTemp.view.setFitHeight(32);
+                            itemTemp.view.setFitWidth(32);
+                            itemTemp.view.setX((hero.pos[0] - 1) * (640 / 20));
+                            itemTemp.view.setY(hero.pos[1] * (640 / 20));
+                            pane.getChildren().add(itemTemp.view);
                         }
                     } else {
                         int[] move = {-1, 0};
@@ -131,12 +128,11 @@ public class RunGame extends Application {
                             tower.obstructions[hero.pos[0] + 1][hero.pos[1]] = itemTemp;
                             System.out.println(tower.obstructions[hero.pos[0] + 1][hero.pos[1]]);
                             tower.occupants.add(itemTemp);
-                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
-                            tempIV.setFitHeight(32);
-                            tempIV.setFitWidth(32);
-                            tempIV.setX((hero.pos[0] + 1) * (640 / 20));
-                            tempIV.setY(hero.pos[1] * (640 / 20));
-                            pane.getChildren().add(tempIV);
+                            itemTemp.view.setFitHeight(32);
+                            itemTemp.view.setFitWidth(32);
+                            itemTemp.view.setX((hero.pos[0] + 1) * (640 / 20));
+                            itemTemp.view.setY(hero.pos[1] * (640 / 20));
+                            pane.getChildren().add(itemTemp.view);
                         }
                     } else {
                         int[] move = {1, 0};
@@ -154,12 +150,11 @@ public class RunGame extends Application {
                             tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1] = itemTemp;
                             System.out.println(tower.obstructions[hero.pos[0] - 1][hero.pos[1] - 1]);
                             tower.occupants.add(itemTemp);
-                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
-                            tempIV.setFitHeight(32);
-                            tempIV.setFitWidth(32);
-                            tempIV.setX((hero.pos[0] - 1) * (640 / 20));
-                            tempIV.setY((hero.pos[1] - 1) * (640 / 20));
-                            pane.getChildren().add(tempIV);
+                            itemTemp.view.setFitHeight(32);
+                            itemTemp.view.setFitWidth(32);
+                            itemTemp.view.setX((hero.pos[0] - 1) * (640 / 20));
+                            itemTemp.view.setY((hero.pos[1] - 1) * (640 / 20));
+                            pane.getChildren().add(itemTemp.view);
                         }
                     } else {
                         int[] move = {-1, -1};
@@ -177,12 +172,11 @@ public class RunGame extends Application {
                             tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1] = itemTemp;
                             System.out.println(tower.obstructions[hero.pos[0] + 1][hero.pos[1] - 1]);
                             tower.occupants.add(itemTemp);
-                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
-                            tempIV.setFitHeight(32);
-                            tempIV.setFitWidth(32);
-                            tempIV.setX((hero.pos[0] + 1) * (640 / 20));
-                            tempIV.setY((hero.pos[1] - 1) * (640 / 20));
-                            pane.getChildren().add(tempIV);
+                            itemTemp.view.setFitHeight(32);
+                            itemTemp.view.setFitWidth(32);
+                            itemTemp.view.setX((hero.pos[0] + 1) * (640 / 20));
+                            itemTemp.view.setY((hero.pos[1] - 1) * (640 / 20));
+                            pane.getChildren().add(itemTemp.view);
                         }
                     } else {
                         int[] move = {1, -1};
@@ -200,12 +194,11 @@ public class RunGame extends Application {
                             tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1] = itemTemp;
                             System.out.println(tower.obstructions[hero.pos[0] - 1][hero.pos[1] + 1]);
                             tower.occupants.add(itemTemp);
-                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
-                            tempIV.setFitHeight(32);
-                            tempIV.setFitWidth(32);
-                            tempIV.setX((hero.pos[0] - 1) * (640 / 20));
-                            tempIV.setY((hero.pos[1] + 1) * (640 / 20));
-                            pane.getChildren().add(tempIV);
+                            itemTemp.view.setFitHeight(32);
+                            itemTemp.view.setFitWidth(32);
+                            itemTemp.view.setX((hero.pos[0] - 1) * (640 / 20));
+                            itemTemp.view.setY((hero.pos[1] + 1) * (640 / 20));
+                            pane.getChildren().add(itemTemp.view);
                         }
                     } else {
                         int[] move = {-1, 1};
@@ -223,12 +216,11 @@ public class RunGame extends Application {
                             tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1] = itemTemp;
                             System.out.println(tower.obstructions[hero.pos[0] + 1][hero.pos[1] + 1]);
                             tower.occupants.add(itemTemp);
-                            ImageView tempIV = new ImageView(itemTemp.getImgRepresentation());
-                            tempIV.setFitHeight(32);
-                            tempIV.setFitWidth(32);
-                            tempIV.setX((hero.pos[0] + 1) * (640 / 20));
-                            tempIV.setY((hero.pos[1] + 1) * (640 / 20));
-                            pane.getChildren().add(tempIV);
+                            itemTemp.view.setFitHeight(32);
+                            itemTemp.view.setFitWidth(32);
+                            itemTemp.view.setX((hero.pos[0] + 1) * (640 / 20));
+                            itemTemp.view.setY((hero.pos[1] + 1) * (640 / 20));
+                            pane.getChildren().add(itemTemp.view);
                         }
                     } else {
                         int[] move = {1, 1};

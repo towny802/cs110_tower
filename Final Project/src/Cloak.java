@@ -10,7 +10,7 @@ public class Cloak extends Armor {
     private int armor = 1;
     private String name = "Cloak";
     private char charRepresentation = 'C';
-    private Image imgRepresentation = new Image("longsword.png");
+    private Image imgRepresentation;
 
     @Override
     public char getCharRepresentation() {

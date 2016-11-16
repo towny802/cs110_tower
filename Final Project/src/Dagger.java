@@ -10,7 +10,7 @@ public class Dagger extends Weapon {
     private int damage = 2;
     private String name = "Dagger";
     private char charRepresentation = ',';
-    private Image imgRepresentation = new Image("dagger.png");
+    private Image imgRepresentation;
 
 
 
@@ -21,6 +21,9 @@ public class Dagger extends Weapon {
 
     @Override
     public Image getImgRepresentation() {
+        if (imgRepresentation == null){
+            imgRepresentation = new Image("dagger.png");
+        }
         return imgRepresentation;
     }
 

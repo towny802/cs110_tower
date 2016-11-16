@@ -84,10 +84,10 @@ public abstract class GamePiece {
         int rand = (int) (Math.random() * 100);
         switch (creature.getType()) {
             case 0: //bandits
-                if (rand <= 50) {
+                if (rand <= 100) {
                     return new Dagger();
-                } else {
-                    return new Cloak();
+//                } else {
+//                    return new Cloak();
                 }
             default:
                 return null;
