@@ -96,8 +96,4 @@ public class Kobold extends Creature {
         this.armor = armor;
     }
 
-    @Override
-    public int getType() {
-        return 0;
-    }
 }

@@ -95,9 +95,4 @@ public class FinalBoss extends Creature {
     public void setArmor(int armor) {
         this.armor = armor;
     }
-
-    @Override
-    public int getType() {
-        return 0;
-    }
 }

@@ -82,12 +82,12 @@ public abstract class GamePiece {
 
     public Item dropItem(Creature creature) {
         int rand = (int) (Math.random() * 100);
-        switch (creature.getType()) {
-            case 0: //bandits
-                if (rand <= 100) {
+        switch (creature.getName()) {
+            case "Bandit":
+                if (rand <= 50) {
                     return new Dagger();
-//                } else {
-//                    return new Cloak();
+                } else {
+                    return new Cloak();
                 }
             default:
                 return null;
