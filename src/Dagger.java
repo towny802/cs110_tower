@@ -7,10 +7,10 @@ import javafx.scene.image.Image;
  */
 public class Dagger extends Weapon {
 
-    private int damage = 1;
+    private int damage = 2;
     private String name = "Dagger";
     private char charRepresentation = ',';
-    private Image imgRepresentation;
+    private Image imgRepresentation = new Image("dagger.png");
 
 
 
@@ -21,9 +21,6 @@ public class Dagger extends Weapon {
 
     @Override
     public Image getImgRepresentation() {
-        if (imgRepresentation == null){
-            imgRepresentation = new Image("dagger.png");
-        }
         return imgRepresentation;
     }
 
